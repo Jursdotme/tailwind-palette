@@ -283,12 +283,12 @@ export default {
       const lightSteps = this.mainColorPlacement + 1
 
       const color50 = tinycolor(this.defaultMainColor)
-        .spin(parseInt(this.lightHue))
+        // .spin(parseInt(this.lightHue))
         // .desaturate(parseInt(this.lightSat))
         .lighten(this.lightness)
         .toRgbString()
       const color900 = tinycolor(this.defaultMainColor)
-        .spin(parseInt(this.darkHue))
+        // .spin(parseInt(this.darkHue))
         // .desaturate(parseInt(this.darkSat))
         .darken(this.darkness)
         .toRgbString()
