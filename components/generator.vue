@@ -216,8 +216,23 @@
       </div>
     </div>
 
-    <div class="my-6 md:my-16 max-w-xl mx-auto">
-      <pre class="bg-gray-800 p-8 mx-6 rounded shadow-inner text-white">{{
+    <div class="my-6 px-6 md:my-16 max-w-xl mx-auto">
+      <div>
+        <label
+          for="email"
+          class="block text-sm font-medium leading-5 text-gray-700"
+          >Palette name</label
+        >
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <input
+            id="email"
+            v-model="paletteName"
+            class="form-input block w-full sm:text-sm sm:leading-5"
+          />
+        </div>
+      </div>
+
+      <pre class="bg-gray-800 p-8 mt-6 rounded shadow-inner text-white">{{
         codeSnippet
       }}</pre>
     </div>
@@ -226,6 +241,7 @@
 
 <script>
 const tinycolor = require('tinycolor2')
+const slugify = require('slugify')
 export default {
   name: 'Generator',
   data() {
@@ -238,6 +254,7 @@ export default {
       darkSat: 0,
       mainColorPlacement: 5,
       defaultMainColor: '#8034D5',
+      paletteName: 'Brand',
       placementOptions: [
         { text: '100', value: 1 },
         { text: '200', value: 2 },
@@ -323,7 +340,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: {
+        ${this.sanitizedPaletteName}: {
           '50': '${this.colorArray[0]}',
           '100': '${this.colorArray[1]}',
           '200': '${this.colorArray[2]}',
@@ -340,6 +357,11 @@ module.exports = {
   }
 }`
       return snippet
+    },
+    sanitizedPaletteName() {
+      return slugify(this.paletteName, {
+        lower: true
+      })
     }
   }
 }
