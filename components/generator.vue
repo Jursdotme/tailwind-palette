@@ -1,54 +1,29 @@
 <template>
-  <div class="mx-auto">
-    <div class="grid grid-cols-10 md:mx-6 md:gap-5 mt-6 md:mt-16">
-      <span class="text-center text-sm leading-5 text-gray-500">
-        50
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        100
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        200
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        300
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        400
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        500
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        600
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        700
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        800
-      </span>
-      <span class="text-center text-sm leading-5 text-gray-500">
-        900
-      </span>
-
-      <div
-        v-for="(color, index) in colorArray"
-        :key="index"
-        class="md:rounded overflow-hidden"
-      >
-        <div
-          class="h-16 md:h-24 md:rounded bg-gray-500"
-          :style="{ backgroundColor: color }"
-        ></div>
-        <span
-          class="hidden md:block text-sm w-full text-center text-gray-500"
-          >{{ color }}</span
-        >
+  <div class="bg-gray-100">
+    <div class="mx-auto relative">
+      <div class="absolute inset-0">
+        <div class="bg-gray-900 h-1/3"></div>
+      </div>
+      <div class="relative md:mx-2 p-5">
+        <div class="grid grid-cols-10 md:gap-5">
+          <div
+            v-for="(color, index) in colorArray"
+            :key="index"
+            class="md:rounded overflow-hidden bg-white shadow rounded"
+          >
+            <div
+              class="h-16 md:h-28 bg-gray-500 shadow-inner"
+              :style="{ backgroundColor: color }"
+            ></div>
+            <div class="p-2 text-xs">
+              <p>{{ colorName(index) }}</p>
+              <p>{{ color }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="mt-6 md:mt-16 px-6">
+    <div class="mt-6 md:mt-8 px-6">
       <div class="md:grid grid-cols-2 gap-8 mt-8">
         <div>
           <label
@@ -85,138 +60,148 @@
             </option>
           </select>
         </div>
-        <div>
-          <label
-            for="maincolor"
-            class="block text-sm font-medium leading-5 text-gray-700"
-          >
-            Lighten
-            <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-              >{{ lightness }}</span
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+            <span class="font-bold">Light colors</span>
+          </div>
+          <div class="px-4 py-5 sm:p-6">
+            <label
+              for="maincolor"
+              class="block text-sm font-medium leading-5 text-gray-700"
             >
-          </label>
-          <input
-            id="myRange"
-            v-model="lightness"
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            step=".1"
-            class="slider w-full"
-          />
+              Lighten
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+                >{{ lightness }}</span
+              >
+            </label>
+            <input
+              id="myRange"
+              v-model="lightness"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              step=".1"
+              class="slider w-full"
+            />
 
-          <label
-            for="maincolor"
-            class="block text-sm font-medium leading-5 text-gray-700"
-          >
-            Light hue shift
-            <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-              >{{ lightHue }}</span
+            <label
+              for="maincolor"
+              class="block text-sm font-medium leading-5 text-gray-700"
             >
-          </label>
-          <input
-            id="myRange"
-            v-model="lightHue"
-            type="range"
-            min="-120"
-            max="120"
-            value="50"
-            step=".1"
-            class="slider w-full"
-          />
+              Light hue shift
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+                >{{ lightHue }}</span
+              >
+            </label>
+            <input
+              id="myRange"
+              v-model="lightHue"
+              type="range"
+              min="-120"
+              max="120"
+              value="50"
+              step=".1"
+              class="slider w-full"
+            />
 
-          <label
-            for="maincolor"
-            class="block text-sm font-medium leading-5 text-gray-700"
-          >
-            Light Desaturation
-            <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-              >{{ lightSat }}</span
+            <label
+              for="maincolor"
+              class="block text-sm font-medium leading-5 text-gray-700"
             >
-          </label>
-          <input
-            id="myRange"
-            v-model="lightSat"
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            step=".1"
-            class="slider w-full"
-          />
+              Light Desaturation
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+                >{{ lightSat }}</span
+              >
+            </label>
+            <input
+              id="myRange"
+              v-model="lightSat"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              step=".1"
+              class="slider w-full"
+            />
+          </div>
         </div>
-        <div>
-          <label
-            for="maincolor"
-            class="block text-sm font-medium leading-5 text-gray-700"
-          >
-            Darken
-            <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-              >{{ darkness }}</span
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+            <span class="font-bold">Dark colors</span>
+          </div>
+          <div class="px-4 py-5 sm:p-6">
+            <label
+              for="maincolor"
+              class="block text-sm font-medium leading-5 text-gray-700"
             >
-          </label>
-          <input
-            id="myRange"
-            v-model="darkness"
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            step=".1"
-            class="slider w-full"
-          />
+              Darken
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+                >{{ darkness }}</span
+              >
+            </label>
+            <input
+              id="myRange"
+              v-model="darkness"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              step=".1"
+              class="slider w-full"
+            />
 
-          <label
-            for="maincolor"
-            class="block text-sm font-medium leading-5 text-gray-700"
-          >
-            Dark hue shift
-            <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-              >{{ darkHue }}</span
+            <label
+              for="maincolor"
+              class="block text-sm font-medium leading-5 text-gray-700"
             >
-          </label>
-          <input
-            id="myRange"
-            v-model="darkHue"
-            type="range"
-            min="-120"
-            max="120"
-            value="50"
-            step=".1"
-            class="slider w-full"
-          />
+              Dark hue shift
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+                >{{ darkHue }}</span
+              >
+            </label>
+            <input
+              id="myRange"
+              v-model="darkHue"
+              type="range"
+              min="-120"
+              max="120"
+              value="50"
+              step=".1"
+              class="slider w-full"
+            />
 
-          <label
-            for="maincolor"
-            class="block text-sm font-medium leading-5 text-gray-700"
-          >
-            Dark Desaturation
-            <span
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
-              >{{ darkSat }}</span
+            <label
+              for="maincolor"
+              class="block text-sm font-medium leading-5 text-gray-700"
             >
-          </label>
-          <input
-            id="myRange"
-            v-model="darkSat"
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            step=".1"
-            class="slider w-full"
-          />
+              Dark Desaturation
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
+                >{{ darkSat }}</span
+              >
+            </label>
+            <input
+              id="myRange"
+              v-model="darkSat"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              step=".1"
+              class="slider w-full"
+            />
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="my-6 px-6 md:my-16 max-w-xl mx-auto">
+    <div class="py-6 px-6 md:py-16 max-w-xl mx-auto">
       <div>
         <label
           for="email"
@@ -264,6 +249,18 @@ export default {
         { text: '600', value: 6 },
         { text: '700', value: 7 },
         { text: '800', value: 8 }
+      ],
+      colorNames: [
+        '50',
+        '100',
+        '200',
+        '300',
+        '400',
+        '500',
+        '600',
+        '700',
+        '800',
+        '900'
       ]
     }
   },
@@ -362,6 +359,11 @@ module.exports = {
       return slugify(this.paletteName, {
         lower: true
       })
+    }
+  },
+  methods: {
+    colorName(index) {
+      return this.colorNames[index]
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between p-4">
-    <span class="text-2xl font-bold text-gray-700 tracking-tight"
+  <div class="flex justify-between p-4 bg-gray-900">
+    <span class="text-2xl font-bold text-white tracking-tight"
       >Tailwind Palette Generator</span
     >
     <AboutButton />

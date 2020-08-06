@@ -1,6 +1,11 @@
-# tailwind-palette
+# Tailwind Palette Generator
 
-## Build Setup
+Tailwind Palette Generator is an online tool for quickly making color palettes from a single color, for use in tailwindcss.
+
+## Feature requests
+It's early days for this project, so it's missing important features such as code output view & detailed options for each plugin. Check out the issues to see what's planned, or suggest ideas of your own!
+
+## Run locally
 
 ```bash
 # install dependencies
