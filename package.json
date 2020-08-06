@@ -16,7 +16,8 @@
     "@tailwindcss/ui": "^0.5.0",
     "nuxt": "^2.14.0",
     "slugify": "^1.4.5",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "vue-click-outside": "^1.1.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
