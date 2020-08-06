@@ -79,7 +79,7 @@ export default {
     }
   },
   created() {
-    setTimeout(() => (this.isVisible = true), 8000)
+    setTimeout(() => (this.isVisible = true), 3000)
   }
 }
 </script>
