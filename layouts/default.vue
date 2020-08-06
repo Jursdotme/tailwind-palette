@@ -3,5 +3,6 @@
     <Header />
     <Nuxt />
     <Footer />
+    <FooterBanner />
   </div>
 </template>
