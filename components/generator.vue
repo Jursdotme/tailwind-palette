@@ -1,18 +1,21 @@
 <template>
   <div class="bg-gray-100">
-    <div class="mx-auto relative">
+    <div class="relative mx-auto">
       <div class="absolute inset-0">
         <div class="bg-gray-900 h-1/3"></div>
       </div>
-      <div class="relative max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+      <div class="relative p-5 md:mx-2">
+
         <div class="grid grid-cols-10 md:gap-5">
           <div
             v-for="(color, index) in colorArray"
             :key="index"
-            class="md:rounded overflow-hidden shadow rounded"
+            class="overflow-hidden bg-white rounded shadow md:rounded"
+
           >
             <div
-              class="h-16 md:h-28 bg-gray-500 shadow-inner"
+              class="h-16 bg-gray-500 shadow-inner md:h-28"
               :style="{ backgroundColor: color }"
             ></div>
             <div class="p-2 text-xs bg-white">
@@ -23,19 +26,20 @@
         </div>
       </div>
     </div>
-    <div class="mt-6 md:mt-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="md:grid grid-cols-2 gap-8 mt-8">
+    <div class="px-6 mt-6 md:mt-8">
+      <div class="grid-cols-2 gap-8 mt-8 md:grid">
+
         <div>
           <label
             for="maincolor"
             class="block text-sm font-medium leading-5 text-gray-700"
             >Main color</label
           >
-          <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="relative mt-1 rounded-md shadow-sm">
             <input
               id="maincolor"
               v-model="mainColor"
-              class="form-input block w-full sm:text-sm sm:leading-5"
+              class="block w-full form-input sm:text-sm sm:leading-5"
             />
           </div>
         </div>
@@ -43,13 +47,13 @@
         <div>
           <label
             for="location"
-            class="block text-sm leading-5 font-medium text-gray-700"
+            class="block text-sm font-medium leading-5 text-gray-700"
             >Main color placement</label
           >
           <select
             id="location"
             v-model="mainColorPlacement"
-            class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+            class="block w-full py-2 pl-3 pr-10 mt-1 text-base leading-6 border-gray-300 form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
           >
             <option
               v-for="(option, index) in placementOptions"
@@ -60,8 +64,8 @@
             </option>
           </select>
         </div>
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-          <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+        <div class="overflow-hidden bg-white rounded-lg shadow">
+          <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
             <span class="font-bold">Light colors</span>
           </div>
           <div class="px-4 py-5 sm:p-6">
@@ -83,7 +87,7 @@
               max="100"
               value="50"
               step=".1"
-              class="slider w-full"
+              class="w-full slider"
             />
 
             <label
@@ -104,14 +108,14 @@
               max="120"
               value="50"
               step=".1"
-              class="slider w-full"
+              class="w-full slider"
             />
 
             <label
               for="maincolor"
               class="block text-sm font-medium leading-5 text-gray-700"
             >
-              Light Desaturation
+              Light Saturation
               <span
                 class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
                 >{{ lightSat }}</span
@@ -121,16 +125,16 @@
               id="myRange"
               v-model="lightSat"
               type="range"
-              min="0"
+              min="-100"
               max="100"
-              value="50"
+              value="0"
               step=".1"
-              class="slider w-full"
+              class="w-full slider"
             />
           </div>
         </div>
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-          <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+        <div class="overflow-hidden bg-white rounded-lg shadow">
+          <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
             <span class="font-bold">Dark colors</span>
           </div>
           <div class="px-4 py-5 sm:p-6">
@@ -152,7 +156,7 @@
               max="100"
               value="50"
               step=".1"
-              class="slider w-full"
+              class="w-full slider"
             />
 
             <label
@@ -173,14 +177,14 @@
               max="120"
               value="50"
               step=".1"
-              class="slider w-full"
+              class="w-full slider"
             />
 
             <label
               for="maincolor"
               class="block text-sm font-medium leading-5 text-gray-700"
             >
-              Dark Desaturation
+              Dark Saturation
               <span
                 class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800"
                 >{{ darkSat }}</span
@@ -190,34 +194,34 @@
               id="myRange"
               v-model="darkSat"
               type="range"
-              min="0"
+              min="-100"
               max="100"
-              value="50"
+              value="0"
               step=".1"
-              class="slider w-full"
+              class="w-full slider"
             />
           </div>
         </div>
       </div>
     </div>
 
-    <div class="py-6 px-6 md:py-16 max-w-xl mx-auto">
+    <div class="max-w-xl px-6 py-6 mx-auto md:py-16">
       <div>
         <label
           for="email"
           class="block text-sm font-medium leading-5 text-gray-700"
           >Palette name</label
         >
-        <div class="mt-1 relative rounded-md shadow-sm">
+        <div class="relative mt-1 rounded-md shadow-sm">
           <input
             id="email"
             v-model="paletteName"
-            class="form-input block w-full sm:text-sm sm:leading-5"
+            class="block w-full form-input sm:text-sm sm:leading-5"
           />
         </div>
       </div>
 
-      <pre class="bg-gray-800 p-8 mt-6 rounded shadow-inner text-white">{{
+      <pre class="p-8 mt-6 text-white bg-gray-800 rounded shadow-inner">{{
         codeSnippet
       }}</pre>
     </div>
@@ -302,7 +306,7 @@ export default {
         const hueShiftAmount = (parseInt(this.lightHue) / lightSteps) * index
 
         const editedColor = tinycolor(value)
-          .desaturate(desatAmount)
+          .saturate(desatAmount)
           .spin(parseInt(hueShiftAmount))
           .toString()
 
@@ -320,7 +324,7 @@ export default {
         const hueShiftAmount = (parseInt(this.darkHue) / darkSteps) * index
 
         const editedColor = tinycolor(value)
-          .desaturate(desatAmount)
+          .saturate(desatAmount)
           .spin(parseInt(hueShiftAmount))
           .toString()
 
