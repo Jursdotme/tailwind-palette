@@ -1,13 +1,13 @@
 <template>
   <transition name="fade">
-    <div v-if="isVisible" class="fixed bottom-0 inset-x-0 pb-2 sm:pb-5">
-      <div class="max-w-screen-xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="p-2 rounded-lg bg-indigo-600 shadow-lg sm:p-3">
-          <div class="flex items-center justify-between flex-wrap">
-            <div class="w-0 flex-1 flex items-center">
-              <span class="flex p-2 rounded-lg bg-indigo-800">
+    <div v-if="isVisible" class="fixed inset-x-0 bottom-0 pb-2 sm:pb-5">
+      <div class="max-w-screen-xl px-2 mx-auto sm:px-6 lg:px-8">
+        <div class="p-2 bg-indigo-600 rounded-lg shadow-lg sm:p-3">
+          <div class="flex flex-wrap items-center justify-between">
+            <div class="flex items-center flex-1 w-0">
+              <span class="flex p-2 bg-indigo-800 rounded-lg">
                 <svg
-                  class="h-6 w-6 text-white"
+                  class="w-6 h-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -22,7 +22,7 @@
               </span>
               <p class="ml-3 font-medium text-white truncate">
                 <span class="md:hidden">
-                  We announced a new product!
+                  Still in development.
                 </span>
                 <span class="hidden md:inline">
                   Be gentle. This project is still in early development.
@@ -30,26 +30,26 @@
               </p>
             </div>
             <div
-              class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto"
+              class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto"
             >
               <div class="rounded-md shadow-sm">
                 <a
                   href="https://github.com/Jursdotme/tailwind-palette/projects/1"
-                  class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
+                  class="flex items-center justify-center px-4 py-2 text-sm font-medium leading-5 text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-indigo-500 focus:outline-none focus:shadow-outline"
                 >
                   Learn more
                 </a>
               </div>
             </div>
-            <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-2">
+            <div class="flex-shrink-0 order-2 sm:order-3 sm:ml-2">
               <button
                 type="button"
-                class="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500 transition ease-in-out duration-150"
+                class="flex p-2 -mr-1 transition duration-150 ease-in-out rounded-md hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500"
                 aria-label="Dismiss"
                 @click="isVisible = !isVisible"
               >
                 <svg
-                  class="h-6 w-6 text-white"
+                  class="w-6 h-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
