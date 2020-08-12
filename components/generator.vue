@@ -4,18 +4,21 @@
       <div class="absolute inset-0">
         <div class="bg-gray-900 h-1/3"></div>
       </div>
+
       <div class="relative p-5 md:mx-2">
+
         <div class="grid grid-cols-10 md:gap-5">
           <div
             v-for="(color, index) in colorArray"
             :key="index"
             class="overflow-hidden bg-white rounded shadow md:rounded"
+
           >
             <div
               class="h-16 bg-gray-500 shadow-inner md:h-28"
               :style="{ backgroundColor: color }"
             ></div>
-            <div class="p-2 text-xs">
+            <div class="p-2 text-xs bg-white">
               <p>{{ colorName(index) }}</p>
               <p>{{ color }}</p>
             </div>
@@ -25,6 +28,7 @@
     </div>
     <div class="px-6 mt-6 md:mt-8">
       <div class="grid-cols-2 gap-8 mt-8 md:grid">
+
         <div>
           <label
             for="maincolor"
